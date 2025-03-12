@@ -1,0 +1,28 @@
+.pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.125rem 0.75rem;
+  font-size: var(--size-xs);
+  border: 1px solid;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.pill-low {
+  background-color: var(--pill-low-bg);
+  border-color: 1px solid var(--pill-low-border);
+  color: var(--pill-low-text);
+}
+
+.pill-medium {
+  background-color: var(--pill-medium-bg);
+  border-color: 1px solid var(--pill-medium-border);
+  color: var(--pill-medium-text);
+}
+
+.pill-high {
+  background-color: var(--pill-high-bg);
+  border-color: 1px solid var(--pill-high-border);
+  color: var(--pill-high-text);
+}

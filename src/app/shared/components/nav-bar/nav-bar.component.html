@@ -1,0 +1,6 @@
+<header class="container" *ngIf="authService.user$ | async as user">
+  <p class="username">{{ user.username }}</p>
+  <button class="button button-todo" type="button" (click)="authService.signOut()">
+    Sign out
+  </button>
+</header>

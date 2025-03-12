@@ -1,0 +1,41 @@
+<main>
+  <ng-container *ngIf="isDesktop;else mobile">
+    <app-nav-bar></app-nav-bar>
+    <div class="container todos-wrapper" *ngIf="todoService.todos$ | async as todos" cdkDropListGroup>
+      <div class="todo-section">
+        <p class="section-title">Todo</p>
+
+        <div class="todo-list custom-scrollbar" cdkDropList id="TODO" [cdkDropListData]="todos.todo"
+          (cdkDropListDropped)="drop($event)">
+          <todo *ngFor="let item of todos.todo" [item]="item"></todo>
+        </div>
+      </div>
+      <div class="todo-section">
+        <p class="section-title">In Progress</p>
+
+        <div class="todo-list custom-scrollbar" cdkDropList id="IN_PROGRESS" [cdkDropListData]="todos.inProgress"
+          (cdkDropListDropped)="drop($event)">
+          <todo *ngFor="let item of todos.inProgress" [item]="item"></todo>
+        </div>
+      </div>
+      <div class="todo-section">
+        <p class="section-title">Done</p>
+
+        <div class="todo-list custom-scrollbar" cdkDropList id="DONE" [cdkDropListData]="todos.done"
+          (cdkDropListDropped)="drop($event)">
+          <todo *ngFor="let item of todos.done" [item]="item"></todo>
+        </div>
+      </div>
+    </div>
+    <button class="button-todo button circle-button" type="button" (click)="openDialog()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+      </svg>
+    </button>
+  </ng-container>
+  <ng-template #mobile>
+    <div class="mobile-container">
+      <p>This app is not supported on mobile</p>
+    </div>
+  </ng-template>
+</main>

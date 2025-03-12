@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  color: var(--clr-text-warning);
+  margin-top: 6px;
+  font-size: var(--size-sm);
+}
+
+li {
+  list-style: none;
+  padding-left: 8px;
+}

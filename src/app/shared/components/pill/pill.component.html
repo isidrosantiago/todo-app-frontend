@@ -1,0 +1,7 @@
+<p class="pill" [ngClass]="{
+    'pill-low': title === 'LOW',
+    'pill-medium': title === 'MEDIUM',
+    'pill-high': title === 'HIGH'
+  }">
+  {{ title | titlecase }}
+</p>

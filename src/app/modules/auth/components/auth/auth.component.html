@@ -1,0 +1,19 @@
+<div class="auth-card">
+  <h1 class="auth-title">{{ title }}</h1>
+  <form autocomplete="off" class="auth-form" (ngSubmit)="onSubmit()" [formGroup]="authForm">
+    <div class="input-container">
+      <label for="username" class="input-label required">Username</label>
+      <input type="text" id="username" class="input-field" formControlName="username">
+      <input-errors [control]="authForm.controls.username"></input-errors>
+    </div>
+    <div class="input-container">
+      <label for="password" class="input-label">Password</label>
+      <input type="password" id="password" class="input-field" formControlName="password">
+      <input-errors [control]="authForm.controls.password"></input-errors>
+    </div>
+    <button class="button button-primary" [disabled]="authForm.invalid">
+      Sign up
+    </button>
+    <ng-content></ng-content>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 2rem 1rem;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.button {
+  border-radius: 8px;
+  padding: 8px 16px;
+}

@@ -1,0 +1,31 @@
+<div>
+  <h1>{{ data.action | titlecase }}</h1>
+  <form [formGroup]="form" autocomplete="off">
+    <div class="inputs-container">
+      <div class="input-container title">
+        <label for="title" class="input-label required">Title</label>
+        <input type="text" id="title" class="input-field" formControlName="title" />
+      </div>
+      <div class="input-container description">
+        <label for="description" class="input-label required">Description</label>
+        <input type="text" id="description" class="input-field" formControlName="description" />
+      </div>
+      <div class="input-container priority">
+        <label for="priority" class="input-label required">Priority</label>
+        <select name="priority" id="priority" formControlName="priority">
+          <option value="" hidden>Please choose an option</option>
+          <option value="LOW">Low</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HIGH">High</option>
+        </select>
+      </div>
+      <div class="input-container due-date">
+        <label for="dueDate" class="input-label required">Due date</label>
+        <input type="date" id="dueDate" class="input-field" [min]="minDate" formControlName="dueDate" />
+      </div>
+    </div>
+    <button type="button" class="button button-todo" (click)="submit()">
+      {{ data.action | titlecase }}
+    </button>
+  </form>
+</div>

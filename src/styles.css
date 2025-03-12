@@ -1,1 +1,170 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/cdk/overlay-prebuilt.css";
+@import "ngx-toastr/toastr";
+
+:root {
+  --clr-background: #1b1b1b;
+  --clr-foreground: #262626;
+  --clr-text: #ffffff;
+  --clr-text-secondary: #b2b2b2;
+  --clr-text-warning: #ff8177;
+  --clr-text-link: #007bff;
+  --clr-text-link-hover: #0056b3;
+
+  --pill-low-bg: rgba(26, 162, 81, 0.12);
+  --pill-low-border: rgba(62, 224, 127, 0.1);
+  --pill-low-text: rgb(35, 223, 111);
+  --pill-medium-bg: rgba(255, 193, 7, 0.12);
+  --pill-medium-border: rgba(255, 215, 0, 0.1);
+  --pill-medium-text: rgb(255, 215, 0);
+  --pill-high-bg: rgba(255, 68, 68, 0.12);
+  --pill-high-border: rgba(255, 107, 107, 0.1);
+  --pill-high-text: rgb(255, 168, 168);
+
+  --size-xss: 0.5rem;
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.25rem;
+  --size-2xl: 1.5rem;
+  --size-3xl: 1875rem;
+  --size-4xl: 2.25rem;
+  --size-5xl: 3rem;
+  --size-6xl: 3.75rem;
+  --size-7xl: 4.5rem;
+  --size-8xl: 6rem;
+  --size-9xl: 8rem;
+  --size-10xl: 10rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: calc(1em + 0.5rem);
+}
+
+body {
+  height: 100dvh;
+  width: 100dvw;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  font-family: "Inter", sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.025em;
+}
+
+.auth-prompt {
+  font-size: 14px;
+  color: var(--clr-text-secondary);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-link {
+  color: var(--clr-text-link);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: var(--clr-text-link-hover);
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 0.5rem;
+}
+
+/* xs */
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.button {
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.button-todo {
+  background-color: var(--clr-text-secondary);
+  border: 1px solid var(--clr-text-secondary);
+  color: var(--clr-background);
+  font-weight: 700;
+}
