@@ -1,9 +1,11 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, Inject, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { TodoService } from '@modules/todos/services/todo.service';
-import { Todo } from '@modules/todos/types/todo';
+import { Todo, UpdateTodoResponse } from '@modules/todos/types/todo';
 import { ToastrService } from 'ngx-toastr';
+import { Observer } from 'rxjs';
 
 interface DialogData {
   action: string;
@@ -58,32 +60,28 @@ export class TodoFormComponent implements OnInit {
   }
 
   createTodo() {
-    this.todoService.createTodo(this.form.getRawValue()).subscribe({
-      next: (v) => {
-        this.toastr.success(v.message, 'Create task');
-      },
-      error: (e) => {
-        this.toastr.error(e.error.message, 'Create task');
-      },
-      complete: () => {
-        this.dialog.closeAll();
-      },
-    });
+    this.todoService
+      .createTodo(this.form.getRawValue())
+      .subscribe(this.responseHandler());
   }
 
   updateTodo() {
     this.todoService
       .updateTodo(this.data.todo.id, this.form.getRawValue())
-      .subscribe({
-        next: (v) => {
-          this.toastr.success(v.message, 'Update task');
-        },
-        error: (e) => {
-          this.toastr.error(e.error.message, 'Update task');
-        },
-        complete: () => {
-          this.dialog.closeAll();
-        },
-      });
+      .subscribe(this.responseHandler());
+  }
+
+  private responseHandler(): Observer<UpdateTodoResponse> {
+    return {
+      next: (v) => {
+        this.toastr.success(v.message, 'Update task');
+      },
+      error: (e: HttpErrorResponse) => {
+        this.toastr.error(e.error.message, 'Update task');
+      },
+      complete: () => {
+        this.dialog.closeAll();
+      },
+    };
   }
 }
